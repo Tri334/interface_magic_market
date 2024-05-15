@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Market</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div style="
+    display:flex;justify-content: center;
+    flex-direction: column;align-content: center;flex-wrap: wrap;">
+        <div style="
+        width: -webkit-fill-available;
+        background-color:aquamarine;
+        ">
+            <h1 style="text-align:center;">Welcome to Flask</h1>
+        </div>
+        <div style="display: flex;">
+            {% for link in product %}
+            <div id="container" style="
+            display: flex;width: 220px;
+            height: 250px;border: 1px solid black;border-radius: 10px;
+            margin: 5px;justify-content: center;align-items: center;
+            flex-direction: column;
+
+            ">
+                <div style="
+                    width: inherit;
+                    height: inherit;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                ">
+
+                    <a href="{{ link['link'] }}" target="_blank" style="
+                
+                display: flex;
+                height: 200px;
+                width: 200px;
+                flex-direction: column;
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+                font-weight: 500;
+                
+                ">
+                        <img src="{{ link['img'] }}" alt="Affiliate Image">
+                    </a>
+                </div>
+                <div style="width: 95%;">
+                    <hr style="
+                    margin: 1px;
+                    width: inherit;
+                    ">
+                    <div style="padding-bottom: 5px;">
+                        {{ link['product_name'] }}
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</body>
+</div>
+
+</html>
+
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
